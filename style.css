@@ -1,0 +1,15 @@
+#main-form{
+    text-align: center;
+    width:100%;
+    height: 100%;
+    align-content: center;
+}
+
+.name{
+    margin: 40px;
+}
+
+.sub-area{
+    border-top: 3px  solid;
+    margin-top: 30px;
+}
