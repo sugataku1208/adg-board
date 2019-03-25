@@ -15,9 +15,9 @@
         <h1>掲示板</h1>
         <form action = "" method = "post">
             <div class = "name">
-                名前 <input id = "name" type = "text" name = "name" autocomplete = "off" value = ""><?php if ( $err_msg !== '' ) echo '<p style = "color:#FF0105;">' . $name_err_msg . '</p>'; ?><br>
+                名前 <input id = "name" type = "text" name = "name" autocomplete = "off" value = ""><?php if ( $name !== '' ) echo '<p style = "color:#FF0105;">' . $name_err_msg . '</p>'; ?><br>
             </div>
-            コメント<textarea id = "comment" name = "comment" cols = "30" rows = "10" value = ""></textarea><?php if ( $err_msg !== '' ) echo '<p style = "color:#FF0105;">' . $comment_err_msg . '</p>'; ?>
+            コメント<textarea id = "comment" name = "comment" cols = "30" rows = "10" value = ""></textarea><?php if ( $comment !== '' ) echo '<p style = "color:#FF0105;">' . $comment_err_msg . '</p>'; ?>
             <br>
             <input id = "bt" type="submit" value = "更新" name = "send" >
         </form>
