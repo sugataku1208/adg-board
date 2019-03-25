@@ -8,59 +8,63 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <title>掲示板</title>
     <script language="javascript" type="text/javascript">
-        function nullcheck() {
+        function emptycheck() {
 
             var name=document.getElementById("name").value;
-
             var name_error=document.getElementById("name_error");
             var comment=document.getElementById("comment").value;
             var comment_error=document.getElementById("comment_error");
             var complete = document.getElementById("complete");
 
-            if(name == ""){
+            if(name == "" && comment == ""){
+
                 name_error.style.color="red";
                 name_error.innerHTML="名前を入力してください";
+                name_error.style.display="block";
+                comment_error.style.color="red";
+                comment_error.innerHTML="コメントを入力してください";
+                comment_error.style.display="block";
+                return false;
+            }
+            if(name == ""){
 
+                name_error.style.color="red";
+                name_error.innerHTML="名前を入力してください";
+                name_error.style.display="block";
+                return false;
 
             }else{
+
                 name_error.style.display="none";
+
             }
 
             if(comment == ""){
+
                 comment_error.style.color="red";
                 comment_error.innerHTML="コメントを入力してください";
+                comment_error.style.display="block";
 
+                return false;
 
             }else{
+
                 comment_error.style.display="none";
-            }
 
-            if($('#name,#comment').val().length == 0){
-                $('#bt').prop('disabled',true);
             }
-
-            $('#name,#comment').on('keydown keyup keypress change',function(){
-                if($(this).val().length > 0){
-                    $('#name,#comment').prop('disabled',false);
-                }else{
-                    $('#bt').prop('disabled',false);
-                }
-            });
 
             if(name != "" && comment != ""){
+
                 complete.innerHTML="更新完了";
-                complete.style.display="block";
                 $("#name,#comment").val("");
+
             }else{
+
                 complete.style.display="none";
+
             }
 
-
             $("ul").append("<li>"+name,comment+"</li>");
-
-
-
-
 
         }
     </script>
@@ -72,12 +76,12 @@
         <h1>掲示板</h1>
         <form action="" method="post">
             <div class="name">
-                名前 <input id="name" type="text" name="name" value=""><span id="name_error"></span><br>
+                名前 <input id="name" type="text" name="name" autocomplete="off" value=""><span id="name_error"></span><br>
             </div>
 
-            コメント<textarea id="comment"name="text" id="" cols="30" rows="10" value=""></textarea><span id="comment_error"></span>
+            コメント<textarea id="comment"name="comment" id="" cols="30" rows="10" value=""></textarea><span id="comment_error"></span>
             <br>
-            <input id="bt"   type="button" value="更新" onclick="nullcheck();">
+            <input id="bt"   type="button" value="更新"  onclick="emptycheck();">
 
         </form>
 
