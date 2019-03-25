@@ -1,3 +1,4 @@
+<?php require("function.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +82,7 @@
 
             コメント<textarea id="comment"name="comment" id="" cols="30" rows="10" value=""></textarea><span id="comment_error"></span>
             <br>
-            <input id="bt"   type="button" value="更新"  onclick="emptycheck();">
+            <input id="bt"   type="button" value="更新" name="send" onclick="emptycheck();">
 
         </form>
 
