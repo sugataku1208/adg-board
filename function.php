@@ -13,7 +13,7 @@ if ( $link !== false ) {
     $comment_err_msg = '';
     $name = '';
     $comment = '';
-    if ( isset( $_POST['send'] ) === true ) {
+    if ( isset( $_POST['send'] ) === true && $_SERVER["REQUEST_METHOD"]==="POST" ) {
         $name     = $_POST['name'];
         $comment = $_POST['comment'];
         if ( $name !== '' && $comment !== '' ) {
@@ -27,6 +27,7 @@ if ( $link !== false ) {
             $res = mysqli_query( $link, $query );
             if ( $res !== false ) {
                 $msg = '書き込み完了';
+                header('Location:http://localhost/board/index.php');
             }else{
                 $err_msg = '書き込みに失敗しました';
             }
@@ -41,7 +42,8 @@ if ( $link !== false ) {
     while( $row = mysqli_fetch_assoc( $res ) ) {
         array_push( $data, $row);
     }
-    arsort( $data );
+    asort( $data );
+
 
 } else {
     echo "データベースの接続に失敗しました";
