@@ -25,7 +25,7 @@
     <section class = "sub-area">
         <?php
             foreach ($data as $key => $val) {
-                echo $val['name'] . '<br>' . $val['comment'] . '<br>';
+                echo h($val['name']) . '<br>' . h($val['comment']) . '<br>';
             }
         ?>
     </section>

@@ -1,5 +1,7 @@
 <?php
-
+function h($str) {
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
 $db_host = 'localhost';
 $db_name = 'board_db';
 $db_user = 'board_user';
@@ -42,6 +44,7 @@ if ( $link !== false ) {
     while( $row = mysqli_fetch_assoc( $res ) ) {
         array_push( $data, $row);
     }
+
     asort( $data );
 
 
